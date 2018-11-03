@@ -1,7 +1,7 @@
-<oreon-header></oreon-header>
+<oreon-header (showRecipe)="showRecipe = true; showShoppingList = false" (showShoppingList)="showShoppingList = true; showRecipe = false"></oreon-header>
 <section class="container">
   <div class="row">
-    <oreon-recipe></oreon-recipe>
-    <oreon-shopping-list></oreon-shopping-list>
+    <oreon-recipe *ngIf="showRecipe"></oreon-recipe>
+    <oreon-shopping-list *ngIf="showShoppingList"></oreon-shopping-list>
   </div>
 </section>

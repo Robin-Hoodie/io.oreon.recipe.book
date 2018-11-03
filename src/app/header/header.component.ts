@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'oreon-header',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @Output() showRecipe: EventEmitter<void> = new EventEmitter();
+  @Output() showShoppingList: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 

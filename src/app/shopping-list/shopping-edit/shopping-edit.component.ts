@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ShoppingListService} from '../shopping-list.service';
 
 @Component({
   selector: 'oreon-shopping-edit',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('nameInput') nameInputRef: ElementRef;
+  @ViewChild('amountInput') amountInputRef: ElementRef;
+
+  constructor(private shoppingListService: ShoppingListService) {
+  }
 
   ngOnInit() {
   }
 
+  submit() {
+    this.shoppingListService.addIngredient(
+      {name: this.nameInputRef.nativeElement.value, amount: this.amountInputRef.nativeElement.value}
+    );
+  }
 }
